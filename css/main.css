@@ -1656,7 +1656,7 @@ ul#nav li.current a:after {
 #services {
 	background: #12151B;
 	padding-top: 120px;
-	padding-bottom: 120px;
+	padding-bottom: 20px;
 	border-bottom: 1px solid #15191d;
 }
 
@@ -1739,8 +1739,8 @@ ul#nav li.current a:after {
 
 #about {
 	background: #111417;
-	padding-top: 120px;
-	padding-bottom: 120px;
+	padding-top: 0px;
+	padding-bottom: 0px;
 	border-bottom: 1px solid #15191d;
 }
 
