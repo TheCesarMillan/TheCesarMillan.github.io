@@ -1,7 +1,7 @@
 ﻿<?php
 
 // Replace this with your own email address
-$siteOwnersEmail = 'c.millan@cmi3d.com';
+$siteOwnersEmail = 'ventas@cmi3d.com';
 
 
 if($_POST) {
@@ -13,15 +13,15 @@ if($_POST) {
 
    // Check Name
 	if (strlen($name) < 2) {
-		$error['name'] = "Por favor ingresa tu nombre.";
+		$error['name'] = "Please enter your name.";
 	}
 	// Check Email
 	if (!preg_match('/^[a-z0-9&\'\.\-_\+]+@[a-z0-9\-]+\.([a-z0-9\-]+\.)*+[a-z]{2}/is', $email)) {
-		$error['email'] = "Por favor ingresa un correo valido.";
+		$error['email'] = "Please enter a valid email address.";
 	}
 	// Check Message
-	if (strlen($contact_message) < 10) {
-		$error['message'] = "Por favor ingresa tu mensaje, debe tener mas de 10 caracteres.";
+	if (strlen($contact_message) < 15) {
+		$error['message'] = "Please enter your message. It should have at least 15 characters.";
 	}
    // Subject
 	if ($subject == '') { $subject = "Contact Form Submission"; }
@@ -50,7 +50,7 @@ if($_POST) {
       $mail = mail($siteOwnersEmail, $subject, $message, $headers);
 
 		if ($mail) { echo "OK"; }
-      else { echo "Ups, algo salio mal. Por favor intentalo nuevamente."; }
+      else { echo "Something went wrong. Please try again."; }
 
 	} # end if - no validation error
 

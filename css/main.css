@@ -1294,7 +1294,7 @@ ul#nav li.current a:after {
 
 #portfolio {
 	background: #111417;
-	padding-top: 120px;
+	padding-top: 50px;
 	border-bottom: 1px solid #15191d;
 }
 
@@ -1654,9 +1654,9 @@ ul#nav li.current a:after {
 /* =================================================================== */
 
 #services {
-	background: #12151B;
-	padding-top: 120px;
-	padding-bottom: 20px;
+	background: #101218;
+	padding-top: 50px;
+	padding-bottom: 120px;
 	border-bottom: 1px solid #15191d;
 }
 
@@ -1740,7 +1740,7 @@ ul#nav li.current a:after {
 #about {
 	background: #111417;
 	padding-top: 0px;
-	padding-bottom: 0px;
+	padding-bottom: 50px;
 	border-bottom: 1px solid #15191d;
 }
 
@@ -2181,8 +2181,8 @@ ul#nav li.current a:after {
 
 #contact {
 	background: #12151B;
-	padding-top: 120px;
-	padding-bottom: 138px;
+	padding-top: 50px;
+	padding-bottom: 80px;
 	overflow: hidden;
 	border-bottom: 1px solid #15191d;
 }
