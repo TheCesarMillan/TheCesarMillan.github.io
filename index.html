@@ -577,90 +577,53 @@
 
    <!-- contact
    ================================================== -->
-   <section id="contact">
+   <section id ="contact">
+     <div class="row section-head">
 
-   	<div class="row section-head">
+       <div class="twelve columns">
 
-   		<div class="twelve columns">
+          <h1>Ponte en contato con nosotros<span>.</span></h1>
+          <hr />
+          <div class="row">
 
-	         <h1>Ponte en contato con nosotros<span>.</span></h1>
+            <div id="contact-form" class="six columns tab-whole left">
 
-	         <hr />
+              <form action="https://formspree.io/ventas@cmi3d.com" method="POST">
+                <input type="text" name="name" placeholder="Nombre" minLength="2" required>
+                <input type="email" name="email" placeholder="Tu correo" minLength="2" required>
+                <textarea name="message" placeholder="Dejanos un mensaje"></textarea>
+                <button type="submit">Enviar</button>
+              </form>
 
-	      </div>
+           </div> <!-- end row -->
+           <div class="six columns tab-whole right">
 
-      </div> <!-- end section-head -->
+              <p class="lead">Contáctanos via email, o si lo prefieres puedes mandarnos un WhatsApp y a la brevedad te contestaremos. Si necesitas una cotización en menos de 24hrs la tendrás, cualquier duda nos la puedes hacer llegar, en CMI3D estamos para ayudarte.
 
-      <div class="row">
+             <h3 class="address">Formas de contacto:</h3>
 
-      	<div id="contact-form" class="six columns tab-whole left">
+             <p>
+              Telefono: (33)1094-6519<br>
+              Email: ventas@cmi3d.com<br>
+              Redes sociales: @CMI3D
+              </p>
 
-            <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="sendEmail.php"  >
-      			<fieldset>
+              <h3>Formatos preferidos para impresión 3D:</h3>
+           <p>.Stl, .Obj, .STEP, .f3d
+           </p>
 
-                  <div class="group">
- 						   <input name="contactName" type="text" id="contactName" placeholder="Nombre" value="" minLength="2" required />
-                  </div>
-                  <div>
-	      			   <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required />
-	               </div>
-                  <div>
-	     				   <input name="contactSubject" type="text" id="contactSubject" placeholder="Asunto"  value="" />
-	               </div>
-                  <div>
-	                 	<textarea name="contactMessage"  id="contactMessage" placeholder="Mensaje" rows="10" cols="50" required ></textarea>
-	               </div>
-                  <div>
-                     <button class="submitform">Enviar</button>
-                     <div id="submit-loader">
-                        <div class="text-loader">Enviando...</div>
-       				      <div class="s-loader">
-								  	<div class="bounce1"></div>
-								  	<div class="bounce2"></div>
-								  	<div class="bounce3"></div>
-								</div>
-							</div>
-                  </div>
+           <h3>Formas de pago:</h3>
+           <p>Paypal<br>
+           MercadoPago<br>
+             Tarjeta de crédito.
+           </p>
+           </div>
 
-      			</fieldset>
-      		</form> <!-- Form End -->
+           </div> <!-- end row -->
+       </div> <!-- twelve row -->
+     </div>   <!-- end row section-head -->
 
-            <!-- contact-warning -->
-            <div id="message-warning"></div>
-            <!-- contact-success -->
-      		<div id="message-success">
-               <i class="icon-ok"></i>Tu mensaje a sido enviado, gracias!<br />
-      		</div>
-
-         </div>
-
-         <div class="six columns tab-whole right">
-
-            <p class="lead">Contáctanos via email, o si lo prefieres puedes mandarnos un WhatsApp y a la brevedad te contestaremos. Si necesitas una cotización en menos de 24hrs la tendrás, cualquier duda nos la puedes hacer llegar, en CMI3D estamos para ayudarte.
-
-	         <h3 class="address">Formas de contacto:</h3>
-
-	         <p>
-            Telefono: (33)1094-6519<br>
-            Email: ventas@cmi3d.com<br>
-            Redes sociales: @CMI3D
-            </p>
-
-            <h3>Formatos preferidos para impresión 3D:</h3>
-			   <p>.Stl, .Obj, .STEP, .f3d
-			   </p>
-
-         <h3>Formas de pago:</h3>
-      <p>Paypal<br>
-         MercadoPago<br>
-           Tarjeta de crédito.
-      </p>
-         </div>
-
-      </div> <!-- end row -->
-
-   </section>  <!-- end contact -->
+   </section> <!-- end section contact -->
 
 
    <!-- Footer
