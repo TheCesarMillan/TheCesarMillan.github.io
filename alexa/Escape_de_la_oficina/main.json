@@ -3,34 +3,104 @@
     "version": "1.0",
     "theme": "dark",
     "import": [],
-    "resources": [],
+    "resources": [
+        {
+            "description": "Colors dark to light",
+            "colors": {
+                "myBlack": "#343838",
+                "myOverlay": "#4D343838",
+                "myWhite": "#FFFFFF"
+            }
+        }
+    ],
     "styles": {},
     "layouts": {},
     "mainTemplate": {
+        "parameters": [
+            "payload"
+        ],
         "items": [
             {
-                "type": "Frame",
-                "height": "100vh",
+                "type": "Container",
                 "width": "100vw",
-                "backgroundColor": "blue",
+                "height": "100vh",
                 "items": [
                     {
-                        "type": "Container",
-                        "height": "100vh",
+                        "type": "Frame",
                         "width": "100vw",
-                        "direction": "column",
-                        "alignItems": "center",
-                        "justifyContent": "center",
+                        "height": "100vh",
+                        "backgroundColor": "@myBlack",
+                        "position": "absolute"
+                    },
+                    {
+                        "type": "Image",
+                        "source": "${payload.myDocumentData.APLimage}",
+                        "scale": "${payload.myDocumentData.APLscale}",
+                        "position": "absolute",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "overlayColor": "@myOverlay"
+                    },
+                     {
+                        "when": "${viewport.shape == 'round'}",
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
                         "items": [
                             {
                                 "type": "Text",
-                                "text": "Escape de la oficina"
+                                "text": "${payload.myDocumentData.APLTextTop}",
+                                "color": "@myWhite",
+                                "fontWeight": "900",
+                                "width": "100vw",
+                                "fontSize": "${payload.myDocumentData.APLFontSizeTop}",
+                                "paddingTop": "${payload.myDocumentData.APLPaddingTopTop}",
+                                "textAlign": "center"
                             },
                             {
                                 "type": "Text",
-                                "text": "¡Bienvenidos!"
+                                "text": "${payload.myDocumentData.APLTextBot}",
+                                "color": "@myWhite",
+                                "fontWeight": "400",
+                                "width": "100vw",
+                                "fontSize": "${payload.myDocumentData.APLFontSizeBot}",
+                                "fontStyle": "italic",
+                                "paddingTop": "3vh",
+                                "textAlign": "center"
                             }
-                        ]
+		                ]
+		             },
+		                {
+                        "when": "${viewport.shape != 'round'}",
+                        "type": "Container",
+                        "width": "100vw",
+                        "height": "100vh",
+                        "direction": "row",
+                        "items": [
+                            {
+                                "type": "Text",
+                                "text": "Escape de la oficina",
+                                "color": "@myWhite",
+                                "fontWeight": "900",
+                                "width": "70vw",
+                                "height": "80vh",
+                                "fontSize": "20vh",
+                                "paddingLeft": "5vw",
+                                "textAlignVertical": "center"
+                            },
+                            {
+                                "type": "Text",
+                                "text": "Un juego por: César Millán",
+                                "color": "@myWhite",
+                                "fontWeight": "400",
+                                "width": "70vw",
+                                "fontSize": "4vh",
+                                "fontStyle": "italic",
+                                "paddingBottom": "5vh",
+                                "textAlignVertical": "bottom",
+                                "textAlign": "left"
+                            }
+                         ]
                     }
                 ]
             }

@@ -1,22 +1,16 @@
 {
-  "name": "gamebook-sample-nodejs-skill",
+  "name": "escape_de_la_oficina",
   "version": "1.0.0",
-  "description": "A text adventure skill.",
+  "description": "Skill para Amazon Alexa de un juego interactivo en el que tratas de escapar de una oficina, integra APL.",
   "main": "index.js",
-  "dependencies": {
-    "alexa-sdk": "^1.0.25",
-    "ask-sdk-core": "^2.5.1",
-    "ask-sdk-v1adapter": "^2.5.1",
-    "xml2js": "^0.4.19"
-  },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "alexa",
-    "skill"
-  ],
-  "author": "Amazon.com",
-  "license": "Apache-2.0"
+  "author": "César Millán Castillo - @thecesarmillan - c.millan@cmi3d.com",
+  "license": "ISC",
+  "dependencies": {
+    "alexa-sdk": "^1.0.25",
+    "ask-sdk": "^2.5.2",
+    "ask-sdk-v1adapter": "^2.5.2"
+  }
 }

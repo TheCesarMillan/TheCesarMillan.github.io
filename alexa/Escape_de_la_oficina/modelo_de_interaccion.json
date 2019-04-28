@@ -1,0 +1,202 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "juego de aventura",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": [
+                        "dentente",
+                        "cancela"
+                    ]
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "ayuda"
+                    ]
+                },
+                {
+                    "name": "AMAZON.RepeatIntent",
+                    "samples": [
+                        "donde estoy",
+                        "describe el cuarto"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "alto",
+                        "detente",
+                        "para"
+                    ]
+                },
+                {
+                    "name": "ResumeGame",
+                    "slots": [],
+                    "samples": [
+                        "resume game"
+                    ]
+                },
+                {
+                    "name": "RestartGame",
+                    "slots": [],
+                    "samples": [
+                        "new game"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "Go",
+                    "slots": [
+                        {
+                            "name": "direction",
+                            "type": "LIST_OF_DIRECTIONS"
+                        }
+                    ],
+                    "samples": [
+                        "escalera  de la  {direction}",
+                        "alcanzo",
+                        "entro en la",
+                        "entro a la",
+                        "trepo",
+                        "urgo en la",
+                        "urgo en el",
+                        "urgo",
+                        "urga",
+                        "salte por las {direction}",
+                        "salter por el {direction}",
+                        "sal por las {direction}",
+                        "sal por el {direction}",
+                        "salte por la {direction}",
+                        "salte por {direction}",
+                        "sal por {direction}",
+                        "sal por la {direction}",
+                        "corre {direction}",
+                        "camina {direction}",
+                        "explora {direction}",
+                        "escala por {direction}",
+                        "escala por la {direction}",
+                        "toma {direction}",
+                        "{direction}"
+                    ]
+                },
+                {
+                    "name": "si",
+                    "slots": [],
+                    "samples": [
+                        "si"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_DIRECTIONS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "segundo piso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "arriba",
+                                "synonyms": [
+                                    "subo",
+                                    "subes"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "abajo",
+                                "synonyms": [
+                                    "bajo",
+                                    "bajas"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "entra",
+                                "synonyms": [
+                                    "dentro"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "izquierda"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "derecha"
+                            }
+                        },
+                        {
+                            "id": "desk",
+                            "name": {
+                                "value": "escritorio",
+                                "synonyms": [
+                                    "restirador",
+                                    "mesa",
+                                    "mueble"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "ventana"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "puerta"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "escaleras"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "elevador",
+                                "synonyms": [
+                                    "ascensor"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "corredor",
+                                "synonyms": [
+                                    "pasillo"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "primer piso"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "recepción"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Bodega"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

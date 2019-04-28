@@ -31,6 +31,15 @@ module.exports.handler = (event, context, callback) => {
   alexa.execute();
 };
 
+var aplImage = "https://www.cmi3d.com/alexa/Escape_de_la_oficina/Imagenes/en_la_oficina.jpg"; //Image default for APL
+var aplScale = "best-fill";
+var aplTextTop = "Escape de <br> la oficina";
+var aplTextBot = "Un juego por: @TheCesarMillan";
+var aplFontSizeTop = "13vh";
+var aplFontSizeBot = "4vh";
+var aplPaddingTopTop = "30vh";
+var roomTitle = "roomTitle";
+
 const handlers = {
   'LaunchRequest': function() {
     console.log(`LaunchRequest`);
@@ -126,7 +135,10 @@ const handlers = {
     } else {
       this.event.session.attributes['visited'].push(room['$']['pid']);
     }
+    var roomTitle = room['$']['name'];
+    console.log("roomTitle: " + roomTitle);
 
+    var roomForAPL = this.event.session.attributes['room'];
     var cardTitle = firstSentence;
     var cardContent = (reprompt > '') ? reprompt : lastSentence;
     var imageObj = undefined;
@@ -145,15 +157,25 @@ const handlers = {
       // room has links leading out, so listen for further user input
       this.response.speak(speechOutput)
         .listen(reprompt)
-        .speak(speechOutput)
-        .cardRenderer(cardTitle, cardContent, imageObj);
+        .speak(speechOutput);
+        if (this.event.context.System.device.supportedInterfaces['Alexa.Presentation.APL'] != undefined) {
+            this.response._addDirective(aplDirective(roomForAPL,roomTitle));
+        }
     } else {
       console.log(`WhereAmI: at the end of a branch. Game over.`);
       // clear session attributes
+
+      if (roomForAPL == 12) {
+        roomForAPL = "win";
+      } else {
+          roomForAPL = 'end';
+      }
       this.event.session.attributes['room'] = undefined;
       this.event.session.attributes['visited'] = [];
-      this.response.speak(speechOutput)
-        .cardRenderer(cardTitle, cardContent, imageObj);
+      this.response.speak(speechOutput);
+      if (this.event.context.System.device.supportedInterfaces['Alexa.Presentation.APL'] != undefined) {
+            this.response._addDirective(aplDirective(roomForAPL,roomTitle));
+        }
     }
     this.emit(':responseReady');
   },
@@ -171,10 +193,10 @@ const handlers = {
     var cardTitle = 'Help.';
     var cardContent = speechOutput;
     var imageObj = undefined;
-    var apl_directive =  ({
+    var APL_directive =  ({
                 type: 'Alexa.Presentation.APL.RenderDocument',
                 version: '1.0',
-                document: require('./main.json'),
+                document: require('./welcome.json'),
                 datasources: {}
             });
     console.log(`HelpIntent: ${JSON.stringify({
@@ -185,7 +207,7 @@ const handlers = {
         "content": "AMAZON.HelpIntent Content",
         "imageObj": imageObj
       },
-      "addDirective": apl_directive
+      "addDirective": APL_directive
     })}`);
 
     this.response.speak(speechOutput)
@@ -199,11 +221,11 @@ const handlers = {
     this.emit('CompletelyExit');
   },
   'CompletelyExit': function() {
-    var speechOutput = 'Goodbye.';
+    var speechOutput = '¡Hasta luego!';
     if (TableName) {
       speechOutput = `Your progress has been saved. ${speechOutput}`;
     }
-    var cardTitle = 'Exit.';
+    var cardTitle = 'Fin de la sesion.';
     var cardContent = speechOutput;
     var imageObj = undefined;
     console.log(`CompletelyExit: ${JSON.stringify({
@@ -235,27 +257,67 @@ const handlers = {
   },
 }; //Const Handlers
 
-const HelpIntentHandler = {
-  canHandle({requestEnvelope}) {
-    return requestEnvelope.request.type === 'IntentRequest'
-    && requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
-  },
-  handle({responseBuilder}){
-    const speechOutput = 'Este es un juego de aventura interactivo, el objetivo es escapar de la oficina sin que nadie te cache, para jugar solo escucha la historia y di hacia donde quieres ir. ';
-    const reprompt = 'Si te sientes perdido sólo di: ¿Donde estoy.';
-    return responseBuilder
-      .speak(speechOutput)
-      .addDirective({
-          type: 'Alexa.Presentation.APL.RenderDocument',
-          version: '1.0',
-          document: require('./main.json'),
-          datasources: {}
-      })
-      .reprompt(reprompt)
-      .withSimpleCard(reprompt)
-      .getResponse();
-  },
-};
+function aplDirective(roomForAPL, roomTitle){
+     console.log("roomTitle at function: " + roomTitle);
+
+  switch (roomForAPL) {
+    case '1':
+         aplImage = "https://www.cmi3d.com/alexa/Escape_de_la_oficina/Imagenes/en_la_oficina.jpg";
+         aplScale = "fill";
+         aplTextTop = "Escape de <br> la oficina";
+         aplTextBot = "Un juego por: @TheCesarMillan";
+         aplFontSizeTop = "15vh";
+         aplFontSizeBot = "5vh";
+         aplPaddingTopTop = "27vh";
+      break;
+
+      case 'win':
+         aplImage = "https://www.cmi3d.com/alexa/Escape_de_la_oficina/Imagenes/win.jpg";
+         aplScale = "best-fill";
+         aplTextTop = "¡Felicidades!";
+         aplTextBot = "has llegado al final del juego, <br> espero que lo hayas disfrutado";
+         aplFontSizeTop = "14vh";
+         aplFontSizeBot = "6vh";
+         aplPaddingTopTop = "40vh";
+      break;
+
+    case 'end':
+         aplImage = "https://www.cmi3d.com/alexa/Escape_de_la_oficina/Imagenes/fin_del_juego.jpg";
+         aplScale = "best-fill";
+         aplTextTop = "Fin del juego";
+         aplTextBot = "¡Intentalo de nuevo!";
+         aplFontSizeTop = "14vh";
+         aplFontSizeBot = "6vh";
+         aplPaddingTopTop = "40vh";
+      break;
+
+    default:
+         aplImage = "https://www.cmi3d.com/alexa/Escape_de_la_oficina/Imagenes/"+ roomForAPL +".jpg";
+         aplScale = "fill";
+         aplTextTop = roomTitle;
+         aplTextBot = "Un juego por: @TheCesarMillan";
+         aplFontSizeTop = "15vh";
+         aplFontSizeBot = "5vh";
+         aplPaddingTopTop = "30vh";
+  }
+  var APL_directive =  ({
+         type: 'Alexa.Presentation.APL.RenderDocument',
+         version: '1.0',
+         document: require('./main.json'),
+         datasources: {
+           "myDocumentData": {
+                "APLimage": aplImage,
+                "APLscale": aplScale,
+                "APLTextTop": aplTextTop,
+                "APLTextBot": aplTextBot,
+                "APLFontSizeTop": aplFontSizeTop,
+                "APLFontSizeBot": aplFontSizeBot,
+                "APLPaddingTopTop": aplPaddingTopTop,
+              }
+            }
+   });
+  return APL_directive;
+}
 
 function currentRoom(event) {
   var currentRoomData = undefined;
