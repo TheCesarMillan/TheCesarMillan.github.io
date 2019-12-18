@@ -1,0 +1,114 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "detective popó",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PoopColorIntent",
+                    "slots": [
+                        {
+                            "name": "Color",
+                            "type": "color"
+                        }
+                    ],
+                    "samples": [
+                        "hice color {Color}",
+                        "defequé {Color}",
+                        "cagué {Color}",
+                        "hice {Color}",
+                        "{Color}",
+                        "mi popó fué {Color}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "color",
+                    "values": [
+                        {
+                            "id": "0",
+                            "name": {
+                                "value": "blanco",
+                                "synonyms": [
+                                    "pálido",
+                                    "lechoso",
+                                    "albo",
+                                    "nieve",
+                                    "claro"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "1",
+                            "name": {
+                                "value": "negro",
+                                "synonyms": [
+                                    "negruzco",
+                                    "oscuro"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "2",
+                            "name": {
+                                "value": "rojo",
+                                "synonyms": [
+                                    "sangre",
+                                    "rubí",
+                                    "colorado",
+                                    "rojizo",
+                                    "escarlata"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "3",
+                            "name": {
+                                "value": "amarillo",
+                                "synonyms": [
+                                    "rubio",
+                                    "ocre",
+                                    "dorado",
+                                    "gualdo"
+                                ]
+                            }
+                        },
+                        {
+                            "id": "4",
+                            "name": {
+                                "value": "café"
+                            }
+                        },
+                        {
+                            "id": "5",
+                            "name": {
+                                "value": "verde",
+                                "synonyms": [
+                                    "verde obscuro",
+                                    "verde claro",
+                                    "esmeralda"
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
